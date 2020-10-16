@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping({"/vets"})
+//@RequestMapping({"/vets"})
 public class VetController {
 
     VetService vetService;
@@ -15,9 +15,9 @@ public class VetController {
     public VetController(VetService vetService) {
         this.vetService = vetService;
     }
-    @GetMapping({"","/","/list"})
+    @GetMapping({"/vets/","/vets","/vets.html"})
     public String listar(Model model){
-        model.addAttribute("title","Vet List");
+        model.addAttribute("title","Vets List");
         model.addAttribute("vets", vetService.findAll());
         return "vets/list";
     }

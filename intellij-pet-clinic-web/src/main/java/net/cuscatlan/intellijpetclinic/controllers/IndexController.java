@@ -11,7 +11,7 @@ public class IndexController {
 
     @GetMapping({"","/","/index"})
     public String index(Model model){
-        System.out.println("aca");
+        System.out.println("aca dale prueba");
         model.addAttribute("title","Index Pet Clinic App");
         return "index";
     }
