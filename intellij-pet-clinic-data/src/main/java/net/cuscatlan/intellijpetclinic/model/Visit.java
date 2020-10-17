@@ -7,10 +7,10 @@ import java.time.LocalDate;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class Pet extends BaseEntity {
+public class Visit extends BaseEntity {
 
-    private String petName;
-    private Owner owner;
-    private PetType petType;
-    private LocalDate birthDate;
+    private LocalDate localDate;
+    private String description;
+    private Pet pet;
+
 }
