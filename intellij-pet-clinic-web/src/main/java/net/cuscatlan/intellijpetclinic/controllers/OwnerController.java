@@ -23,4 +23,11 @@ public class OwnerController {
         return "owners/list";
     }
 
+    @GetMapping("/owners/find")
+    public String find(Model model){
+        model.addAttribute("pag","owners");
+        return "notimplemented";
+    }
+
+
 }

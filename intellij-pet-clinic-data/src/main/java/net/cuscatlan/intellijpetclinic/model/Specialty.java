@@ -3,12 +3,9 @@ package net.cuscatlan.intellijpetclinic.model;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.util.HashSet;
-import java.util.Set;
-
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class Vet extends Person {
+public class Specialty extends BaseEntity {
 
-    private Set<Specialty> specialties = new HashSet<>();
+    private String description;
 }

@@ -15,4 +15,10 @@ public class IndexController {
         model.addAttribute("title","Index Pet Clinic App");
         return "index";
     }
+
+    @GetMapping("/oups")
+    public String oups(Model model){
+        model.addAttribute("pag","error");
+        return "notimplemented";
+    }
 }
