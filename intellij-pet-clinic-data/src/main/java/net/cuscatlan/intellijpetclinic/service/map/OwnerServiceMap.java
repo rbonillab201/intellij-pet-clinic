@@ -7,6 +7,7 @@ import net.cuscatlan.intellijpetclinic.service.PetService;
 import net.cuscatlan.intellijpetclinic.service.PetTypeService;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.Set;
 @Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
@@ -67,5 +68,11 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
     @Override
     public Owner findById(Long id) {
         return super.findById(id);
+    }
+
+    @Override
+    public Owner findByLastName(String lastName) {
+        return super.findAll().stream().filter(owner -> owner.getLastName()
+                .equalsIgnoreCase(lastName)).findFirst().orElse(null);
     }
 }
