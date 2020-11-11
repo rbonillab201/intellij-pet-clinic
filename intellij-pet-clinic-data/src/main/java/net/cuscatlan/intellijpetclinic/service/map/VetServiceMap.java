@@ -4,11 +4,13 @@ import net.cuscatlan.intellijpetclinic.model.Specialty;
 import net.cuscatlan.intellijpetclinic.model.Vet;
 import net.cuscatlan.intellijpetclinic.service.SpecialtyService;
 import net.cuscatlan.intellijpetclinic.service.VetService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
     public final SpecialtyService specialtyService;

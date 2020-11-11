@@ -5,11 +5,12 @@ import net.cuscatlan.intellijpetclinic.model.Pet;
 import net.cuscatlan.intellijpetclinic.service.OwnerService;
 import net.cuscatlan.intellijpetclinic.service.PetService;
 import net.cuscatlan.intellijpetclinic.service.PetTypeService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 import java.util.Set;
 @Service
+@Profile({"default","map"})
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     public final PetService petService;

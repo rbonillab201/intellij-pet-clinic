@@ -2,11 +2,13 @@ package net.cuscatlan.intellijpetclinic.service.map;
 
 import net.cuscatlan.intellijpetclinic.model.PetType;
 import net.cuscatlan.intellijpetclinic.service.PetTypeService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default","map"})
 public class PetTypeServiceMap extends AbstractMapService<PetType, Long> implements PetTypeService {
 
     @Override

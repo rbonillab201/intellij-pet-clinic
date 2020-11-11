@@ -1,10 +1,7 @@
 package net.cuscatlan.intellijpetclinic.bootstrap;
 
 import net.cuscatlan.intellijpetclinic.model.*;
-import net.cuscatlan.intellijpetclinic.service.OwnerService;
-import net.cuscatlan.intellijpetclinic.service.PetTypeService;
-import net.cuscatlan.intellijpetclinic.service.SpecialtyService;
-import net.cuscatlan.intellijpetclinic.service.VetService;
+import net.cuscatlan.intellijpetclinic.service.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,12 +14,14 @@ public class LoadData implements CommandLineRunner {
     public final VetService vetService;
     public final SpecialtyService specialtyService;
     public final PetTypeService petTypeService;
+    public final VisitService visitService;
 
-    public LoadData(OwnerService ownerService, VetService vetService, SpecialtyService specialtyService, PetTypeService petTypeService) {
+    public LoadData(OwnerService ownerService, VetService vetService, SpecialtyService specialtyService, PetTypeService petTypeService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.specialtyService = specialtyService;
         this.petTypeService = petTypeService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -41,10 +40,15 @@ public class LoadData implements CommandLineRunner {
         PetType catSaved = new PetType();
         catSaved.setName("Gato");
 
+        petTypeService.save(dog1Saved);
+        petTypeService.save(catSaved);
+
         System.out.println("Tipos de mascotas salvadas");
 
         Specialty surgerySaved = new Specialty();
         surgerySaved.setDescription("Surgery");
+
+        specialtyService.save(surgerySaved);
 
         Owner owner1 = new Owner();
         owner1.setFirstName("Renato");
@@ -92,6 +96,26 @@ public class LoadData implements CommandLineRunner {
         ownerService.save(owner2);
         ownerService.save(owner3);
         System.out.println("Propietarios creados");
+
+        Visit visitPerRenato = new Visit();
+        visitPerRenato.setDescription("Perrito");
+        visitPerRenato.setLocalDate(LocalDate.now());
+        visitPerRenato.setPet(perRenato);
+
+        Visit visitPerTed = new Visit();
+        visitPerTed.setDescription("Ted Perrito");
+        visitPerTed.setLocalDate(LocalDate.now());
+        visitPerTed.setPet(perTed);
+
+        Visit visitCatTito = new Visit();
+        visitCatTito.setDescription("Gatito");
+        visitCatTito.setLocalDate(LocalDate.now());
+        visitCatTito.setPet(catTito);
+
+        visitService.save(visitPerRenato);
+        visitService.save(visitPerTed);
+        visitService.save(visitCatTito);
+        System.out.println("Visitas creadas");
 
         Vet vet1 = new Vet();
         vet1.setFirstName("Karla");
