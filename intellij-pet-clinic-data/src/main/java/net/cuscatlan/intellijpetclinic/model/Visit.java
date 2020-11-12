@@ -8,8 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Getter
-@Setter
+@Data
 @Table(name = "visits")
 @Entity
 public class Visit extends BaseEntity {

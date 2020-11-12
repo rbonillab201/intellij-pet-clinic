@@ -1,5 +1,6 @@
 package net.cuscatlan.intellijpetclinic.model;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,8 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 
-@Setter
-@Getter
+@Data
 @MappedSuperclass
 public class BaseEntity implements Serializable {
 

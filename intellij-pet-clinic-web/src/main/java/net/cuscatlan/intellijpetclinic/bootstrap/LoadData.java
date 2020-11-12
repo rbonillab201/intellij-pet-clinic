@@ -50,6 +50,11 @@ public class LoadData implements CommandLineRunner {
 
         specialtyService.save(surgerySaved);
 
+        Specialty odontoSaved = new Specialty();
+        odontoSaved.setDescription("Odonto");
+
+        specialtyService.save(odontoSaved);
+
         Owner owner1 = new Owner();
         owner1.setFirstName("Renato");
         owner1.setLastName("Bonilla");
@@ -59,6 +64,7 @@ public class LoadData implements CommandLineRunner {
 
         Pet perRenato = new Pet();
         perRenato.setPetType(dog1Saved);
+        perRenato.setPetName("Perrito Renato");
         perRenato.setBirthDate(LocalDate.now());
         perRenato.setOwner(owner1);
 
@@ -73,6 +79,7 @@ public class LoadData implements CommandLineRunner {
 
         Pet perTed = new Pet();
         perTed.setBirthDate(LocalDate.now());
+        perTed.setPetName("Perro Ted");
         perTed.setPetType(dog1Saved);
         perTed.setOwner(owner2);
 
@@ -88,6 +95,7 @@ public class LoadData implements CommandLineRunner {
         Pet catTito = new Pet();
         catTito.setBirthDate(LocalDate.now());
         catTito.setPetType(catSaved);
+        catTito.setPetName("Gato de Tito");
         catTito.setOwner(owner3);
 
         owner3.getPets().add(catTito);
@@ -125,10 +133,10 @@ public class LoadData implements CommandLineRunner {
         Vet vet2 = new Vet();
         vet2.setFirstName("Gaby");
         vet2.setLastName("Bonilla");
-        vet2.getSpecialties().add(surgerySaved);
+        vet2.getSpecialties().add(odontoSaved);
 
-        vetService.save(vet1);
         vetService.save(vet2);
+        vetService.save(vet1);
         System.out.println("Veterinarios creados");
     }
 }

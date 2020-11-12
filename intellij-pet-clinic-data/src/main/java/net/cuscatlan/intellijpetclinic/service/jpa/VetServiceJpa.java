@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicInteger;
+
 @Service
 @Profile("springJpaService")
 public class VetServiceJpa implements VetService {
@@ -17,10 +19,23 @@ public class VetServiceJpa implements VetService {
         this.vetRepository = vetRepository;
     }
 
+    static int numero = 0;
     @Override
     public Set<Vet> findAll() {
         Set<Vet> vets = new HashSet<>();
+
         vets.addAll(vetRepository.findAll());
+
+   /*     System.out.println("Ingresando al servicio findAll");
+         vetRepository.findAll().forEach(data -> {
+            vets.add(data);
+            numero++;
+            System.out.println(data.getSpecialties().toString());
+            System.out.println(data.getFirstName());
+        });
+     //   vets.addAll(vetRepository.findAll());
+        System.out.println("número " + numero);
+        System.out.println("Cantidad " + vets.size());*/
         return vets;
     }
 

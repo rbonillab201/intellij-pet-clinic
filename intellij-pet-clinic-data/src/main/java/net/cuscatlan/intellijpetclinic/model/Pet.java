@@ -8,8 +8,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-@Setter
-@Getter
+@Data
+@EqualsAndHashCode(exclude = {"owner"})
 @Table(name = "pets")
 @Entity
 public class Pet extends BaseEntity {

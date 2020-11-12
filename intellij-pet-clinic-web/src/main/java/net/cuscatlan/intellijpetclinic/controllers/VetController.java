@@ -18,6 +18,7 @@ public class VetController {
     @GetMapping({"/vets/","/vets","/vets.html"})
     public String listar(Model model){
         model.addAttribute("title","Vets List");
+    //    model.addAttribute("vet", vetService.findAll().size());
         model.addAttribute("vets", vetService.findAll());
         return "vets/list";
     }
